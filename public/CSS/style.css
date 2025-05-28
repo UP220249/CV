@@ -280,3 +280,24 @@ h1, h2, h3 {
 footer {
     text-align: center;
 }
+/* Responsive para la sección sobre-mi */
+.sobre-mi {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .sobre-mi {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .sobre-mi .servicio,
+    .sobre-mi .descripcion-personal {
+        width: 100%;
+        max-width: 350px;
+        
+    }
+}
