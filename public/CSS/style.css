@@ -66,7 +66,7 @@ body {
     box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
     background-color: var(--blanco);
     padding: 2rem;
-    border-radius: 1rem;
+    border-radius:10rem;
 }
 
 /* Tipografia */
@@ -133,35 +133,6 @@ h1, h2, h3 {
     color: var(--oscuro);
 }
 
-/* Hero */
-.hero {
-    background-image: url(../img/hero.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 450px;
-    position: relative;
-    margin-bottom: 2rem;
-}
-.contenido-hero {
-    position: absolute;
-    background-color: rgba(0,0,0,.7); /** Anterior **/
-    background-color: rgb(0 0 0 / 70%);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.contenido-hero h2,
-.contenido-hero p {
-    color: var(--blanco);
-}
-.contenido-hero .ubicacion {
-    display: flex;
-    align-items: flex-end;
-}
-
 
 /*nabar*/
 
@@ -191,6 +162,8 @@ h1, h2, h3 {
     display: flex;
     align-items: flex-end;
 }
+
+
 
 /** Servicios **/
 @media (min-width: 768px) {
@@ -300,4 +273,34 @@ footer {
         max-width: 350px;
         
     }
+}
+
+
+.contenedor-foto-perfil {
+    display: flex;                   /* Convierte el contenedor en un flexbox para alinear su contenido */
+    justify-content: center;     /* Alinea el contenido (la imagen) al inicio (izquierda) del contenedor */
+    margin-bottom: 2rem;             /* Agrega un espacio debajo del contenedor */
+}
+
+.foto-perfil {
+    width: 200px;                    /* Ancho fijo de la imagen */
+    height: 200px;                   /* Alto fijo de la imagen */
+    object-fit: cover;               /* La imagen se recorta para cubrir el área, sin deformarse */
+    border-radius: 50%;              /* Hace la imagen completamente redonda */
+    border: 4px solid var(--primario); /* Borde sólido de 4px usando el color primario definido en las variables */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Sombra suave alrededor de la imagen */
+}
+
+.Interno {
+    background-color: var(--blanco);   /* Fondo blanco */
+    padding: 2rem;                     /* Espacio interno */
+    border-radius: 1rem;               /* Bordes redondeados */
+    display: flex;                     /* Flex para centrar contenido */
+    justify-content: center;           /* Centra horizontalmente */
+    align-items: center;               /* Centra verticalmente */
+    max-width: 300px;                  /* Máximo ancho */
+    margin: 0 auto;                    /* Centrado en el contenedor padre */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10); /* Sombra suave */
+    width: 100%;                       /* Ocupa todo el ancho disponible hasta el máximo */
+    min-height: 220px;                 /* Altura mínima para imágenes de 200px + padding */
 }

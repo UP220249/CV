@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <productios>
+        <producto>
+            <id>101</id>
+            <nombre>Mouse inalambrico</nombre>
+            <stock>100</stock>
+            <marca>logitech</marca>
+        <producto>
+            <id>102</id>
+            <nombre>Mouse inalambrico</nombre>
+            <stock>100</stock>
+            <marca>logitech</marca>
+        <producto>
+            <id>104</id>
+            <nombre>Mouse inalambrico</nombre>
+            <stock>100</stock>
+            <marca>logitech</marca>
+        <producto>
+            <id>104</id>
+            <nombre>Mouse inalambrico</nombre>
+            <stock>100</stock>
+            <marca>logitech</marca>
+
+
+
