@@ -1,9 +1,195 @@
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos XML con filtro y edicion</title>
     <style>
-        th {}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #filtroNombre {
+            display: block;
+            margin: 10px auto 20px;
+            padding: 8px 12px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 0 auto 30px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 8px rgb(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td[contenteditable="true"] {
+            background-color: #fffbe6;
+            cursor: text;
+        }
+
+        #guardarBtn,
+        #agregarBtn {
+            display: block;
+            margin: 10px auto 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #guardarBtn:hover,
+        #agregarBtn:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
+
+<body>
+    <h1>Listado de Productos</h1>
+
+    <input type="text" id="filtroNombre" placeholder="Filtrar por nombre..." />
+
+    <table id="productosTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Marca</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- En esta parte se cargan los productos-->
+        </tbody>
+    </table>
+    <button id="guardarBtn">Guardar Cambios</button>
+    <button id="agregarBtn">Agregar Producto</button>
+    <script>
+
+        let productosData = [];
+        function cargarXML() {
+            fetch('productos.xml')
+                .then(response => response.text())
+                .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
+                .then(data => {
+                    const productos = data.getElementsByTagName('producto');
+                    productosData = [];
+
+                    for (let i = 0; i < productos.length; i++) {
+                        const producto = productos[i];
+                        productosData.push({
+                            id: producto.getElementsByTagName('id')[0].textContent.trim(),
+                            nombre: producto.getElementsByTagName('nombre')[0].textContent.trim(),
+                            precio: producto.getElementsByTagName('precio')[0].textContent.trim(),
+                            stock: producto.getElementsByTagName('stock')[0].textContent.trim(),
+                            marca: producto.getElementsByTagName('marca')[0].textContent.trim()
+                        });
+                    }
+                    mostrarTabla(productosData);
+                })
+                .catch(error => {
+                    console.error('Error al cargar el XML:', error);
+                    alert("No se puede cargar el archivo XML.");
+                });
+        }
+
+        function mostrarTabla(data) {
+            const tbody = document.querySelector('#productosTable tbody');
+            tbody.innerHTML = ''; // Limpiar tabla antes de mostrar nuevos datos
+
+            data.forEach((producto, index) => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                        <td contenteditable="false">${producto.id}</td>
+                        <td contenteditable="true" data-field="nombre">${producto.nombre}</td>
+                        <td contenteditable="true" data-field="precio">${producto.precio}</td>
+                        <td contenteditable="true" data-field="stock">${producto.stock}</td>
+                        <td contenteditable="true" data-field="marca">${producto.marca}</td>
+                    `;
+                fila.dataset.index = index; // Guardar el índice del producto
+                tbody.appendChild(fila);
+            });
+
+        }
+
+        //Funcion para filtrar productos por nombre
+        function filtrarTabla() {
+            const filtro = document.getElementById("filtroNombre").value.toLowerCase();
+            const filtrados = productosData.filter(prod =>
+                prod.nombre.toLowerCase().includes(filtro)
+            );
+            mostrarTabla(filtrados);
+        }
+
+        // Guardar en memoria y en el servidor
+        document.getElementById("guardarBtn").addEventListener("click", function () {
+            // Guardar en memoria
+            const filas = document.querySelectorAll('#productosTable tbody tr');
+            filas.forEach(fila => {
+                const index = fila.dataset.index;
+                const camposEditable = fila.querySelectorAll('td[contenteditable="true"]');
+                camposEditable.forEach(td => {
+                    const campo = td.dataset.field;
+                    productosData[index][campo] = td.textContent.trim();
+                });
+            });
+
+            // Guardar en el servidor
+            fetch('/guardar-productos', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(productosData)
+            })
+                .then(res => res.text())
+                .then(msg => alert(msg))
+                .catch(err => alert("Error al guardar en el servidor: " + err));
+        });
+
+        document.getElementById("filtroNombre").addEventListener("input", filtrarTabla);
+
+        document.getElementById("agregarBtn").addEventListener("click", function () {
+            // Generar un nuevo ID consecutivo
+            const nuevoId = productosData.length > 0 ? (parseInt(productosData[productosData.length - 1].id) + 1) : 1;
+            const nuevoProducto = {
+                id: nuevoId,
+                nombre: "",
+                precio: "",
+                stock: "",
+                marca: ""
+            };
+            productosData.push(nuevoProducto);
+            mostrarTabla(productosData);
+        });
+
+        window.onload = cargarXML;
+
+    </script>
+</body>
 
 </html>

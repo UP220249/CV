@@ -1,25 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-    <productios>
-        <producto>
-            <id>101</id>
-            <nombre>Mouse inalambrico</nombre>
-            <stock>100</stock>
-            <marca>logitech</marca>
-        <producto>
-            <id>102</id>
-            <nombre>Mouse inalambrico</nombre>
-            <stock>100</stock>
-            <marca>logitech</marca>
-        <producto>
-            <id>104</id>
-            <nombre>Mouse inalambrico</nombre>
-            <stock>100</stock>
-            <marca>logitech</marca>
-        <producto>
-            <id>104</id>
-            <nombre>Mouse inalambrico</nombre>
-            <stock>100</stock>
-            <marca>logitech</marca>
-
-
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<productos>
+  <producto>
+    <id>1</id>
+    <nombre>Mouse Alambrico</nombre>
+    <precio>29.99</precio>
+    <stock>100</stock>
+    <marca>Marca A</marca>
+  </producto>
+  <producto>
+    <id>2</id>
+    <nombre>Producto B</nombre>
+    <precio>49.99</precio>
+    <stock>50</stock>
+    <marca>Marca B</marca>
+  </producto>
+  <producto>
+    <id>3</id>
+    <nombre>Producto C</nombre>
+    <precio>20</precio>
+    <stock>230</stock>
+    <marca>Marca C</marca>
+  </producto>
+  <producto>
+    <id>4</id>
+    <nombre>Producto D</nombre>
+    <precio>20</precio>
+    <stock>230</stock>
+    <marca>Marca D</marca>
+  </producto>
+  <producto>
+    <id>5</id>
+    <nombre>Mouse Inalámbrico</nombre>
+    <precio>1000</precio>
+    <stock>10</stock>
+    <marca>Sims</marca>
+  </producto>
+  <producto>
+    <id>6</id>
+    <nombre>CPU</nombre>
+    <precio>3000</precio>
+    <stock>15</stock>
+    <marca>nvidia</marca>
+  </producto>
+</productos>
