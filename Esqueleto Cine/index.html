@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <link rel="preload" href="CSS/estilos.css" as="style">
+    <link rel="preload" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="styles/estilos.css">
+    <title>Practica Cine AJA XML</title>
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body onload="cargarPeliculas()">
+    <div id="login">
+        <h2>Iniciar sesion</h2>
+        <input type="text" id="usuario" placeholder="Usuario">
+        <input type="password" id="contrasena" placeholder="Contraseña">
+        <button onclick="iniciarSesion()">Iniciar Sesion</button>
+    </div>
+    <div id="salas" style="display:none;">
+        <h2>Selecciona una sala y asientos</h2>
+        <select id="salaSeleccion" onchange="generarAsientos()">
+            <option value="Sala 1">Sala 1</option>
+            <option value="Sala 2">Sala 2</option>
+            <option value="Sala 3">Sala 3</option>
+        </select>
+        <div id="peliculasContainer"></div>
+        <div id="asientosContainer"></div>
+        <button onclick="comprar()">Comprar</button>
+    </div>
+    <div id="logout" style="display:none;">
+        <button onclick="cerrarSesion()">Cerrar Sesion</button>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

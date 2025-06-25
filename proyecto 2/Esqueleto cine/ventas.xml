@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ventas>
+    <venta>
+        <pelicula>El padrino</pelicula>
+        <sala>2</sala>
+        <asiento fila="B" numero="5"/>
+        <costo>75</costo>
+    </venta>
+</ventas>

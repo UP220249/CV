@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cine - Login y Reservas</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body onload="cargarPeliculas()">
+
+    <div id="login" class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form onsubmit="iniciarSesion(); return false;">
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu usuario" required>
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
+            <button type="submit">Entrar</button>
+            <div id="loginError" class="error" style="display:none;">Usuario o contraseña incorrectos</div>
+        </form>
+    </div>
+
+    <div id="salas" class="salas-container" style="display:none;">
+        <h2>Selecciona tu sala, película y asientos</h2>
+        <div id="salasContainer"></div>
+        <div id="peliculasContainer"></div>
+        <div id="asientosContainer"></div>
+        <button id="comprarBtn" onclick="comprar()" style="display:none;">Comprar boletos</button>
+    </div>
+
+    <div id="ticket" class="ticket-container" style="display:none;">
+        <h2>¡Compra exitosa!</h2>
+        <div id="detallesBoleto"></div>
+        <div id="totalPago"></div>
+    </div>
+
+    <div id="logout" style="display:none; text-align:center; margin-top:20px;">
+        <button onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

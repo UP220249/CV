@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<salas>
+    <sala id="1" nombre="Sala 1">
+        <pelicula id="1" categoria="Acción">
+            <titulo>El Padrino</titulo>
+        </pelicula>
+        <pelicula id="2" categoria="Drama">
+            <titulo>Titanic</titulo>
+        </pelicula>
+    </sala>
+    <sala id="2" nombre="Sala 2">
+        <pelicula id="3" categoria="Ciencia Ficción">
+            <titulo>Inception</titulo>
+        </pelicula>
+        <pelicula id="4" categoria="Acción">
+            <titulo>Pulp Fiction</titulo>
+        </pelicula>
+    </sala>
+    <sala id="3" nombre="Sala 3">
+        <pelicula id="5" categoria="Fantasía">
+            <titulo>El Señor de los Anillos: La Comunidad del Anillo</titulo>
+        </pelicula>
+        <pelicula id="6" categoria="Animación">
+            <titulo>Intensamente 2</titulo>
+        </pelicula>
+    </sala>
+</salas>

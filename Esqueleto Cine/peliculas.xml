@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<peliculas>
+    <pelicula id="1" categoria="clásica">
+        <titulo>El Padrino</titulo>
+        
+      
+    </pelicula id="2" categoria="acción">
+        <titulo>Mad Max: Furia en la Carretera</titulo>
+    <pelicula>
+        <titulo>El Señor de los Anillos: La Comunidad del Anillo</titulo>
+     
+    </pelicula>
+    <pelicula id="3" categoria="aventura" >
+        <titulo>Inception</titulo>
+    
+    </pelicula>
+    <pelicula id="4" categoria="drama">  
+        <titulo>Pulp Fiction</titulo>
+  
+    </pelicula>
+    <pelicula id>
+        <titulo>Titanic</titulo>
+   
+    </pelicula>
+</peliculas>
