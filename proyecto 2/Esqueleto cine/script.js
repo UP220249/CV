@@ -153,9 +153,9 @@ function generarAsientos() {
       if (contador >= 20) break;
     }
     if (contador >= 20) break;
-    const br = document.createElement("div");
-    br.style.height = "8px";
-    cont.appendChild(br);
+    // const br = document.createElement("div");
+    // br.style.height = "8px";
+    // cont.appendChild(br);
   }
 }
 

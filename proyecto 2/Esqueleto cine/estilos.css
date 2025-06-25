@@ -142,16 +142,16 @@ body {
     margin: 24px 0 16px 0;
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    grid-template-rows: repeat(4, 1fr);    /* 4 filas */
-    gap: 0.7rem;
+    grid-template-columns: repeat(5 , 1fr); 
+    grid-template-rows: repeat(4, 1fr);
+    gap: .01rem;
     justify-items: center;
     align-items: center;
     background: #fff1;
     padding: 1.5rem;
     border-radius: 20px;
     box-shadow: 0 2px 8px #0002;
-    margin-bottom: 2rem;
+    margin-bottom: .5rem;
     min-width: 220px;
 }
 
@@ -306,8 +306,8 @@ body {
     #asientosContainer {
         min-width: 0;
         padding: 1rem;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        /* grid-template-rows: repeat(4, 1fr); */
     }
     .asiento {
         width: 28px;
