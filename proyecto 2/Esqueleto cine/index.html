@@ -30,6 +30,8 @@
     </div>
 
     <div id="ticket" class="ticket-container" style="display:none;">
+        <button onclick="descargarBoleto()">Descargar Boleto en PDF</button>
+
         <h2>¡Compra exitosa!</h2>
         <div id="detallesBoleto"></div>
         <div id="totalPago"></div>
@@ -40,6 +42,9 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 </body>
 
 </html>

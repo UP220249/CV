@@ -190,3 +190,18 @@ function comprar() {
   document.getElementById("comprarBtn").style.display = "none";
   generarAsientos(); // Refresca para bloquear los asientos ocupados
 }
+
+function descargarBoleto() {
+  const element = document.getElementById("ticket");
+
+  html2pdf()
+    .set({
+      margin: 10,
+      filename: 'boleto.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a6', orientation: 'portrait' }
+    })
+    .from(element)
+    .save();
+}
